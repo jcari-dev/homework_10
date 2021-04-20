@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .pkmnindeximg{
+        height: 100%;
+        width: 100%;
+    }
+    .pkmnindex{
+        height: 25%;
+        width: 25%;
+        display:inline-block;
+        border: 1px;
+        margin: 25px, 25px, 25px, 25px;
+    }
+</style>
 <body>
     <h1>Pokedex</h1>
-    <!-- <nav>
-        <a href="/fruits/new">Create a New Fruit</a>
-    </nav> -->
-    <ul>
-        <% data.forEach((data, index) => { %>
-            <li>
-                <a href="/<%=data.id%>">
-                    <%= data.name %>
-                </a>
-                </form>
-                <!-- <a href="/fruits/<%=index %>/edit">Edit</a> -->
-            </li>
-            <% }) %>
-    </ul>
+    <% for (let i = 0; i < data.results.length; i++) {%>
+        <h2> <a href="/<%=data.results[i].national_number%>"> <%= data.results[i].name %></a></h2>
+    <%} %>
+
 </body>
 </html>

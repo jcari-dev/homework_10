@@ -1,17 +1,17 @@
 const express    = require('express');
 const app        = express();
-const Pokemon    = require('./models/pokemon.js');
+const pokemon    = require('./models/pokemon.js');
 const port = 3000;
+
 
 // INDEX
 app.get('/', (req, res) => {
-res.render('index.ejs', { data: Pokemon });
+res.render('index.ejs', { data: pokemon });
 });
-
 
 // SHOW
 app.get('/:id', (req, res) => {
-res.render('show.ejs', { data: Pokemon[req.params.id] });
+res.render('show.ejs', { data: pokemon[req.params.id] });
 });
 
 app.listen(port, () => {
