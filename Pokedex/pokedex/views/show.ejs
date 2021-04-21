@@ -7,11 +7,14 @@
     <title>Document</title>
 
 </head>
-<%- include('./show') %>
 <body>
-    <a href="/">Go Back to Pokedex</a>
+    <a href="/pokemon">Go Back to Pokedex</a>
     <br>
-    <%=data.results.name%>
+    <img class="imginside" src="<%=data.img%>">
+    <p class="name">Name: <%=data.name%></p>
+    <br>
+    <p class="type">Type: <%=data.type.join(" and ")%></p>
+
 
 </body>
 </html>

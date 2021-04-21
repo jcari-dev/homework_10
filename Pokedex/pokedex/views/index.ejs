@@ -8,22 +8,42 @@
     <title>Document</title>
 </head>
 <style>
-    .pkmnindeximg{
-        height: 100%;
-        width: 100%;
-    }
-    .pkmnindex{
+    .pokecontainer{
+        display:inline-block;
         height: 25%;
         width: 25%;
-        display:inline-block;
-        border: 1px;
-        margin: 25px, 25px, 25px, 25px;
+        border: 1px black solid;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        min-width: 25%;
+        min-height: 25%;
+        text-align: center;
+    }
+    .indeximg{
+        width: auto;
+        height: auto;
+        max-width:150px;
+        max-height:150px;
+        min-height: 150px;
+        min-width: 150px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
 </style>
 <body>
-    <h1>Pokedex</h1>
-    <% for (let i = 0; i < data.results.length; i++) {%>
-        <h2> <a href="/<%=data.results[i].national_number%>"> <%= data.results[i].name %></a></h2>
+    <h1>Pokedex</h1> 
+    <h3><a href="/pokemon/new">Create New Pokemon</a></h3>
+    <% for (let i = 0; i < data.length; i++) {%>
+        <div class="pokecontainer">
+        
+        <img class="indeximg" src="<%=data[i].img%>">
+        <h2> <a href="pokemon/<%=data[i].id%>"> <%= data[i].name %></a></h2>
+    </div>
     <%} %>
 
 </body>
