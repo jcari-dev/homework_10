@@ -1,9 +1,8 @@
 const express    = require('express');
 const app        = express();
-const Pokemon    = require('./models/Pokemon.js');
 const port = 3000;
 const methodOverride =require('method-override');
-const pokemon = require('./models/Pokemon.js');
+const pokemon = require('./models/pokemon.js');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:false}));
 
@@ -15,7 +14,7 @@ app.use((req, res, next) => {
 
 // INDEX
 app.get('/pokemon', (req, res) => {
-res.render('index.ejs', { data: Pokemon });
+res.render('index.ejs', { data: pokemon });
 });
 
 
@@ -23,10 +22,19 @@ res.render('index.ejs', { data: Pokemon });
 app.get('/pokemon/new', (req, res) => {
     res.render('new.ejs')
 });
+
 app.post('/pokemon', (req, res) =>{
     pokemon.push(req.body)
     res.redirect('/pokemon');
 })
+
+// SHOW
+app.get('/pokemon/:id', (req, res) => {
+    // console.log(Pokemon[req.params.id], req.params.id)
+res.render('show.ejs', { data: pokemon[Number(req.params.id)-1] });
+
+});
+console.log('here')
 // EDIT 
 app.get('/pokemon/:id/edit', (req, res) =>{
     // console.log(pokemon[req.params.id], req.params.id)
@@ -46,13 +54,12 @@ app.post('/pokemon', (req, res) => {
     data.push(req.body)
     res.redirect('/pokemon')
 })
-// SHOW
-app.get('/pokemon/:id', (req, res) => {
-    // console.log(Pokemon[req.params.id], req.params.id)
-res.render('show.ejs', { data: Pokemon[Number(req.params.id)-1] });
-
-});
-
+//DELETE
+// app.delete('pokemon/:id', (req, res) => {
+//     console.log('read')
+//     pokemon.splice(req.params.id, 1); //remove the item from the array
+// 	res.redirect('/pokemon');  //redirect back to index route
+// });
 
 // LISTEN
 app.listen(port, () => {

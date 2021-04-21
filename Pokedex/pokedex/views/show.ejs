@@ -4,17 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </head>
+<style>
+    body{
+        text-align: center;
+        background-color: #ff392e;
+    }
+    .divpoke{
+        
+        background-color: white;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px;
+      width: 30%;
+      border-radius: 2.5%;
+    }
+    .imginside{
+        max-height: 75%;
+        max-width: 75%;
+    }
+    ul{
+        text-align: center;
+        padding-left: 0px;
+        margin-top: 0px;
+        padding: 10px;
+       width: 50%;
+       margin: 0  auto;
+    }
+    h3{
+        padding-top: 10px;
+        margin: 0;
+    }
+    li{
+
+        list-style-type: none;
+    }
+    p{
+        margin: 0;
+    }
+
+</style>
 <body>
     <a href="/pokemon">Go Back to Pokedex</a>
     <br>
+    <div class="divpoke">
     <img class="imginside" src="<%=data.img%>">
-    <p class="name">Name: <%=data.name%></p>
+    <h3 class="name"> <%=data.name%></h3>
     <br>
-    <p class="type">Type: <%=data.type.toString()%>
-
-
+    <p class="type">Type: <%=data.type.toString().replace(',', ' and ')%></p>
+    <p>Stats</p><br>
+    <ul>
+        <li>HP: <%=data.stats.hp%></li>
+        <li>Attack: <%=data.stats.attack%></li>
+        <li>Defense: <%=data.stats.defense%></li>
+        <li>Special Attack: <%=data.stats.spattack%></li>
+        <li>Special Defense: <%=data.stats.spdefense%></li>
+        <li>Speed: <%=data.stats.speed%></li>
+    </ul>
+    </div>
 </body>
 </html>
